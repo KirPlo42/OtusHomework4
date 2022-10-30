@@ -34,8 +34,11 @@ public class BaseTest {
 
     public void headlessMode(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless",
-                "--window-size=1920,1080");
+        options.addArguments("--headless");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--window-size=1920,1200");
         driver = new ChromeDriver(options);
         setImplicitlyWait();
         logger.info("Driver alive in headless mode");
